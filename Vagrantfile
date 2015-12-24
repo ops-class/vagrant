@@ -31,6 +31,7 @@ Vagrant.configure(2) do |config|
     add-apt-repository ppa:geoffrey-challen/os161-toolchain
     apt-get update 
     apt-get install -y os161-toolchain git git-doc
+    apt-get autoremove -y
 
     # 24 Dec 2015 : GWA : Bootstrap trinity user.
     useradd trinity -m -s /bin/bash
