@@ -1,0 +1,33 @@
+= `Vagrantfile` for ops-class.org
+
+This creates a development environment containing the OS/161 toolchain that
+you can use to complete the https://www.ops-class.org[`ops-class.org`]
+programming assignments. Vagrant is a good option for Mac and Windows users.
+If you already have Ubuntu installed, you can
+https://launchpad.net/~geoffrey-challen/+archive/ubuntu/os161-toolchain[add
+our PPA] and install the
+toolchain natively using `apt-get`.
+
+== Installation
+
+. (Required) https://docs.vagrantup.com/v2/installation/[Install Vagrant]
+. (Optional) Install two Vagrant plugins:
+.. `vagrant plugin install vagrant-vbguest`. This ensure that your VirtualBox
+Guest Additions are up to date.
+.. `vagrant plugin install vagrant-timezone`. This synchronizes time between
+your VM guest and host.
+
+== Usage and Configuration
+
+Then just `vagrant up`. The default user and hostname is `trinity@zion`. The
+OS/161 toolchain is installed from the
+https://launchpad.net/~geoffrey-challen/+archive/ubuntu/os161-toolchain[OS/161
+toolchain PPA]. Git is also preinstalled.
+
+The default machine configuration is fairly lightweight: you may want to beef
+it up a bit. Or not. `sys161` is pretty lightweight itself.
+
+Finally, this Git repository is set up to ignore everything by default, to
+support a common case where students place their source directory alongside
+the Vagrantfile. The `src` subdirectory of this directory is shared with the
+virtual machine by default, mounted in the VM as `/home/trinity/src`.
