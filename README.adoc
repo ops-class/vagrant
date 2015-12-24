@@ -29,5 +29,5 @@ it up a bit. Or not. `sys161` is pretty lightweight itself.
 
 Finally, this Git repository is set up to ignore everything by default, to
 support a common case where students place their source directory alongside
-the Vagrantfile. The `src` subdirectory of this directory is shared with the
+the `Vagrantfile`. The `src` subdirectory of this directory is shared with the
 virtual machine by default, mounted in the VM as `/home/trinity/src`.
