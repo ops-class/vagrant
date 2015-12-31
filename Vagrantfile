@@ -54,6 +54,9 @@ Vagrant.configure(2) do |config|
     echo "UseDNS no" >> /etc/ssh/sshd_config
     echo "GSSAPIAuthentication no" >> /etc/ssh/sshd_config
     service ssh reload
+
+    cat "America/New_York" > /etc/timezone
+    dpkg-reconfigure --frontend noninteractive tzdata
    
     # 24 Dec 2015 : GWA : Remount shared folders with correct ownership.
     mount -t vboxsf -o uid=`id -u trinity`,gid=`id -g trinity` home_trinity_src /home/trinity/src
