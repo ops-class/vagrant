@@ -33,6 +33,8 @@ dpkg-reconfigure --frontend noninteractive tzdata
 
 # 24 Dec 2015 : GWA : Remount shared folders with correct ownership on
 # every boot.
+mv /tmp/sharedfolders.conf /etc/init/
+chown root:root /etc/init/sharedfolders.conf
 mount -t vboxsf -o uid=10000,gid=10000 home_trinity_src /home/trinity/src
 
 updatedb
