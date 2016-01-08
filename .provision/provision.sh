@@ -2,7 +2,7 @@
 
 # 24 Dec 2015 : GWA : Minimal box is very minimal. Use to get
 # add-apt-repository, updatedb, tmux.
-sudo apt-get install -y software-properties-common locate tmux
+sudo apt-get install -y software-properties-common locate tmux bash-completion
 add-apt-repository ppa:geoffrey-challen/os161-toolchain
 apt-get update 
 
