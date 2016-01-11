@@ -25,6 +25,8 @@ Vagrant.configure(2) do |config|
     # vb.gui = true
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     v.customize ["guestproperty", "set", :id, "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold", 10000]
+		v.customize ["modifyvm", :id, "--usb", "off"]
+		v.customize ["modifyvm", :id, "--usbehci", "off"]
   end
 
   config.vm.provision "file", source: ".provision/sharedfolders.conf", destination: "/tmp/sharedfolders.conf"
