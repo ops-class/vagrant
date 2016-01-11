@@ -11,9 +11,8 @@ apt-get install -y os161-toolchain git git-doc
 apt-get autoremove -y
 
 # 24 Dec 2015 : GWA : Bootstrap trinity user.
-id -u trinity > /dev/null 2>&1
-if [ $? -ne 0 ] ; then
-	useradd trinity -u 10000 -m -s /bin/bash &>/dev/null
+if ! id -u trinity > /dev/null 2>&1 ; then
+	useradd trinity -u 10000 -m -s /bin/bash > /dev/null 2>&1
 	rsync -a /etc/skel/ /home/trinity/
 
 	mkdir /home/trinity/.ssh
