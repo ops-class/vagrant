@@ -4,7 +4,9 @@
 # add-apt-repository, updatedb, tmux.
 sudo apt-get install -y software-properties-common locate tmux bash-completion man
 add-apt-repository ppa:geoffrey-challen/os161-toolchain > /dev/null 2>&1 && true
-apt-get update 
+echo "set grub-pc/install_devices /dev/sda" | debconf-communicate
+apt-get -y update
+apt-get -y upgrade
 
 # 24 Dec 2015 : GWA : Install OS/161 toolchain and Git.
 apt-get install -y os161-toolchain git git-doc
