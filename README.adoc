@@ -10,6 +10,7 @@ toolchain natively using `apt-get`.
 
 == Installation
 
+. (Required) If you already have https://www.virtualbox.org/[VirtualBox] installed, upgrade to the latest version.
 . (Required) https://docs.vagrantup.com/v2/installation/[Install Vagrant]
 . (Optional) Install two Vagrant plugins:
 .. `vagrant plugin install vagrant-vbguest`. This ensure that your VirtualBox
