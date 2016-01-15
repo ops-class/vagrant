@@ -34,9 +34,22 @@ support a common case where students place their source directory alongside
 the `Vagrantfile`. The `src` subdirectory of this directory is shared with the
 virtual machine by default, mounted in the VM as `/home/trinity/src`.
 
-== Known Problems and Workarounds
+== Known Problems and Workarounds for Windows
 
 === Missing `MSVCR100.dll`
+If your `vagrant up` failed with empty error message like:
+
+image::http://i.imgur.com/75IcjsN.png[GitHub mascot]
+
+It's probably because your Windows OS miss the `MSVCR100.dll` file.
+
+*Solution:*
+
+1. Download MSVCR100.dll from http://fix4dll.com/msvcr100_dll based on your OS.
+
+1. Copy downloaded MSVCR100.dll to `C:\Windows\System32\` or `C:\Windows\SysWOW64\` based on your System version 32-bit/64-bit.
+
+Video help can be found: https://www.youtube.com/watch?v=6GZH_zObpmg
 
 === Windows virtualization enabled
 
