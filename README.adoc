@@ -41,13 +41,13 @@ If your `vagrant up` failed with empty error message like:
 
 image::http://i.imgur.com/75IcjsN.png[GitHub mascot]
 
-It's probably because your Windows OS miss the `MSVCR100.dll` file.
+It's probably because your Windows OS is missing the `MSVCR100.dll` file.
 
 *Solution:*
 
-1. Download MSVCR100.dll from http://fix4dll.com/msvcr100_dll based on your OS.
+1. Download `MSVCR100.dll` from http://fix4dll.com/msvcr100_dll based on your OS.
 
-1. Copy downloaded MSVCR100.dll to `C:\Windows\System32\` or `C:\Windows\SysWOW64\` based on your System version 32-bit/64-bit.
+1. Copy downloaded `MSVCR100.dll` to `C:\Windows\System32\` or `C:\Windows\SysWOW64\` based on your System version 32-bit/64-bit.
 
 Video help can be found: https://www.youtube.com/watch?v=6GZH_zObpmg
 
