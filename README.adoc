@@ -51,6 +51,20 @@ It's probably because your Windows OS is missing the `MSVCR100.dll` file.
 
 Video help can be found: https://www.youtube.com/watch?v=6GZH_zObpmg
 
-=== Windows virtualization enabled
 
-=== SSH on Windows
+=== SSH Connection Issues in Windows Command Prompt
+
+*Symptom*: `vagrant ssh` hangs while connecting.
+
+*Solution*: Vagrant cannot connect over ssh using Windows Command Prompt.  Please use Git Bash or Cygwin instead.
+
+
+=== Windows Virtualization Issues
+
+*Symptom:*  `vagrant up` Hangs While Connecting
+
+*Solution:*
+
+1. Make sure virtualization is enabled in your BIOS.
+
+2. If Hyper-V is enabled, disable it. Vagrant cannot coexist with Hyper-V.
