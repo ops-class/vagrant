@@ -10,6 +10,8 @@ toolchain natively using `apt-get`.
 
 == Installation
 
+. (On Windows) Download https://git-scm.com/download/[Git for Windows]. This includes a `bash` shell which you should use in liue of the terrible Windows shell.
+. (Required) If you already have https://www.virtualbox.org/[VirtualBox] installed, upgrade to the latest version.
 . (Required) https://docs.vagrantup.com/v2/installation/[Install Vagrant]
 . (Optional) Install two Vagrant plugins:
 .. `vagrant plugin install vagrant-vbguest`. This ensure that your VirtualBox
@@ -31,3 +33,38 @@ Finally, this Git repository is set up to ignore everything by default, to
 support a common case where students place their source directory alongside
 the `Vagrantfile`. The `src` subdirectory of this directory is shared with the
 virtual machine by default, mounted in the VM as `/home/trinity/src`.
+
+== Known Problems and Workarounds for Windows
+
+=== Missing `MSVCR100.dll`
+If your `vagrant up` failed with empty error message like:
+
+image::http://i.imgur.com/75IcjsN.png[GitHub mascot]
+
+It's probably because your Windows OS is missing the `MSVCR100.dll` file.
+
+*Solution:*
+
+1. Download `MSVCR100.dll` from http://fix4dll.com/msvcr100_dll based on your OS.
+
+1. Copy downloaded `MSVCR100.dll` to `C:\Windows\System32\` or `C:\Windows\SysWOW64\` based on your System version 32-bit/64-bit.
+
+Video help can be found: https://www.youtube.com/watch?v=6GZH_zObpmg
+
+
+=== SSH Connection Issues in Windows Command Prompt
+
+*Symptom*: `vagrant ssh` hangs while connecting.
+
+*Solution*: Vagrant cannot connect over ssh using Windows Command Prompt.  Please use Git Bash or Cygwin instead.
+
+
+=== Windows Virtualization Issues
+
+*Symptom:*  `vagrant up` Hangs While Connecting
+
+*Solution:*
+
+1. Make sure virtualization is enabled in your BIOS.
+
+2. If Hyper-V is enabled, disable it. Vagrant cannot coexist with Hyper-V.
