@@ -3,8 +3,7 @@
 # 24 Dec 2015 : GWA : Minimal box is very minimal. Use to get
 # add-apt-repository, updatedb, tmux.
 apt-get -y update
-apt-get -y install software-properties-common locate tmux bash-completion man
-lsof iotop
+apt-get -y install software-properties-common locate tmux bash-completion man lsof iotop
 add-apt-repository ppa:geoffrey-challen/os161-toolchain > /dev/null 2>&1 && true
 echo "set grub-pc/install_devices /dev/sda" | debconf-communicate
 apt-get -y update
