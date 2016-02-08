@@ -9,7 +9,9 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = "zion"
 
   config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.synced_folder "src", "/home/trinity/src", create: true
+  config.vm.synced_folder "src", "/home/trinity/src", create: true,
+  owner: "trinity",
+  group: "trinity"
 
   if Vagrant.has_plugin?("vagrant-timezone")
     config.timezone.value = :host
