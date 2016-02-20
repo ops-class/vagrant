@@ -54,9 +54,9 @@ Video help can be found: https://www.youtube.com/watch?v=6GZH_zObpmg
 
 === SSH Connection Issues in Windows Command Prompt
 
-*Symptom*: `vagrant ssh` hangs while connecting.
+*Symptom:* `vagrant ssh` hangs while connecting.
 
-*Solution*: Vagrant cannot connect over ssh using Windows Command Prompt.  Please use Git Bash or Cygwin instead.
+*Solution:* Vagrant cannot connect over ssh using Windows Command Prompt.  Please use Git Bash or Cygwin instead.
 
 
 === Windows Virtualization Issues
@@ -68,3 +68,10 @@ Video help can be found: https://www.youtube.com/watch?v=6GZH_zObpmg
 1. Make sure virtualization is enabled in your BIOS.
 
 2. If Hyper-V is enabled, disable it. Vagrant cannot coexist with Hyper-V.
+
+=== `bmake` fails with hard-link errors
+
+*Symptom:* `ln: failed to create symbolic link ...`
+
+*Solution:* Windows requires users to have special privileges for creating symbolic links.
+Follow instructions listed https://discourse.ops-class.org/t/errors-with-vagrant-and-windows-machines/132/7?u=gurupras[here].
