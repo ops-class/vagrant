@@ -5,6 +5,8 @@
 apt-get -y update
 apt-get -y install software-properties-common locate tmux bash-completion man lsof iotop
 add-apt-repository ppa:geoffrey-challen/os161-toolchain > /dev/null 2>&1 && true
+add-apt-repository ppa:git-core/ppa > /dev/null 2>&1 && true
+
 echo "set grub-pc/install_devices /dev/sda" | debconf-communicate
 apt-get -y update
 apt-get -y upgrade
