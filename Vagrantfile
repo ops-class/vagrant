@@ -30,6 +30,7 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.provision "file", source: ".provision/sharedfolders.conf", destination: "/tmp/sharedfolders.conf"
+  config.vm.provision "file", source: ".provision/.bashrc", destination: "/tmp/.bashrc"
   config.vm.provision "shell",  path: ".provision/provision.sh"
   
   if VAGRANT_COMMAND == "ssh"

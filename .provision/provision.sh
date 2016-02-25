@@ -28,8 +28,7 @@ if ! id -u trinity > /dev/null 2>&1 ; then
 
 	cp /home/vagrant/.bashrc /home/trinity/
 	touch /home/trinity/.hushlogin
-	mkdir -p /home/trinity/root
-	cp /usr/share/examples/sys161/sys161.conf.sample /home/trinity/root/sys161.conf
+	mv /tmp/.bashrc /home/trinity/
 	chown trinity:trinity -R /home/trinity/
 
 	# 24 Dec 2015 : GWA : Try to speed up SSH. Doesn't help much.
