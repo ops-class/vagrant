@@ -3,7 +3,7 @@
 # 24 Dec 2015 : GWA : Minimal box is very minimal. Use to get
 # add-apt-repository, updatedb, tmux.
 apt-get -y update
-apt-get -y install software-properties-common locate tmux bash-completion man lsof iotop
+apt-get -y install software-properties-common locate tmux bash-completion man lsof iotop dos2unix
 add-apt-repository ppa:geoffrey-challen/os161-toolchain > /dev/null 2>&1 && true
 add-apt-repository ppa:git-core/ppa > /dev/null 2>&1 && true
 
@@ -26,9 +26,9 @@ if ! id -u trinity > /dev/null 2>&1 ; then
 
 	echo "trinity ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/trinity
 
-	cp /home/vagrant/.bashrc /home/trinity/
 	touch /home/trinity/.hushlogin
 	mv /tmp/.bashrc /home/trinity/
+	dos2unix /home/trinity/.bashrc >/dev/null 2>&1
 	chown trinity:trinity -R /home/trinity/
 
 	# 24 Dec 2015 : GWA : Try to speed up SSH. Doesn't help much.
