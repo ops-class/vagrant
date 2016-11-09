@@ -2,18 +2,19 @@
 
 # 24 Dec 2015 : GWA : Minimal box is very minimal. Use to get
 # add-apt-repository, updatedb, tmux.
-apt-get -y update
-apt-get -y install software-properties-common locate tmux bash-completion man lsof iotop dos2unix
+apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" update
+apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" install software-properties-common locate tmux bash-completion man lsof iotop dos2unix 
+
 add-apt-repository ppa:geoffrey-challen/os161-toolchain > /dev/null 2>&1 && true
 add-apt-repository ppa:git-core/ppa > /dev/null 2>&1 && true
 
 echo "set grub-pc/install_devices /dev/sda" | debconf-communicate
-apt-get -y update
-apt-get -y upgrade
+apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" update   
+apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade 
 
 # 24 Dec 2015 : GWA : Install OS/161 toolchain and Git.
-apt-get install -y os161-toolchain git git-doc
-apt-get autoremove -y
+apt-get install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" os161-toolchain git git-doc
+apt-get autoremove -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
 
 # 24 Dec 2015 : GWA : Bootstrap trinity user.
 if ! id -u trinity > /dev/null 2>&1 ; then
