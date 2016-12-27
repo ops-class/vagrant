@@ -9,7 +9,6 @@ add-apt-repository ppa:git-core/ppa > /dev/null 2>&1 && true
 
 echo "set grub-pc/install_devices /dev/sda" | debconf-communicate
 apt-get -y update
-apt-get -y upgrade
 
 # 24 Dec 2015 : GWA : Install OS/161 toolchain and Git.
 apt-get install -y os161-toolchain git git-doc
