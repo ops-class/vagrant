@@ -1,1 +1,5 @@
-*
+/shared
+/.bundle
+/.vagrant
+*.swp
+*.swo

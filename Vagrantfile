@@ -2,11 +2,9 @@ VAGRANT_COMMAND = ARGV[0]
 
 Vagrant.configure(2) do |config|
 
-  config.vm.box = "bento/ubuntu-16.04"
-  config.vm.hostname = "zion"
-
-  config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.synced_folder "src", "/home/trinity/src", create: true
+  config.vm.box = "test"
+  config.ssh.username = "trinity"
+  config.vm.synced_folder "shared", "/home/trinity/shared", create: true, owner: "trinity", group: "trinity"
 
   if Vagrant.has_plugin?("vagrant-timezone")
     config.timezone.value = :host
@@ -14,8 +12,8 @@ Vagrant.configure(2) do |config|
 
   config.vm.provider "virtualbox" do |v|
     # 24 Dec 2015 : GWA : This is a fairly lightweight configuration. Feel
-    # free to beef it up to improve performance as needed.
-    v.name = "ops-class.org 1.0"
+    # free to beef it up to improve performance if needed.
+    v.name = "ops-class.org" 
     v.cpus = "1"
     v.memory = "512"
     # 24 Dec 2015 : GWA : Uncomment this if you want a GUI environment.
@@ -26,14 +24,11 @@ Vagrant.configure(2) do |config|
     v.customize ["modifyvm", :id, "--usbehci", "off"]
     v.customize ["modifyvm", :id, "--cableconnected1", "on"]
   end
-
-  config.vm.provision "file", source: ".provision/sharedfolders.conf", destination: "/tmp/sharedfolders.conf"
-  config.vm.provision "file", source: ".provision/.bashrc", destination: "/tmp/.bashrc"
-  config.vm.provision "shell",  path: ".provision/provision.sh"
-
-  if VAGRANT_COMMAND == "ssh"
-    config.ssh.username = "trinity"
-  end
+  
+  config.vm.provision "shell", "inline":<<DONE
+apt-get -qq -o Dpkg::Use-Pty=0 update
+apt-get -qq -o Dpkg::Use-Pty=0 -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
+DONE
 end
 
 # vim: ts=2:sw=2:et:ft=ruby
