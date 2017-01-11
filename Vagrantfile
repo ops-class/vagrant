@@ -2,7 +2,8 @@ VAGRANT_COMMAND = ARGV[0]
 
 Vagrant.configure(2) do |config|
 
-  config.vm.box = "ops-class/ubuntu-16.04"
+  config.vm.box = "ubuntu-16.04-0.0.2"
+  # config.vm.box = "ops-class/ubuntu-16.04"
   config.ssh.username = "trinity"
   config.vm.synced_folder "shared", "/home/trinity/shared", create: true, owner: "trinity", group: "trinity"
 
