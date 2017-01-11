@@ -1,5 +1,5 @@
 /shared/*
-/.bundle
-/.vagrant
+.bundle
+.vagrant
 *.swp
 *.swo
