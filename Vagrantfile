@@ -6,6 +6,7 @@ Vagrant.configure(2) do |config|
     config.vm.box = "ubuntu-16.04-" + ENV['BOX_VERSION']
   else
     config.vm.box = "ops-class/ubuntu-16.04"
+    config.vm.box_version = ">= 0.0.2"
   end
   config.ssh.username = "trinity"
   config.vm.synced_folder "shared", "/home/trinity/shared", create: true, owner: "trinity", group: "trinity"
@@ -32,6 +33,8 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", "inline":<<DONE
 apt-get -qq -o Dpkg::Use-Pty=0 update
 apt-get -qq -o Dpkg::Use-Pty=0 -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
+echo "Installation succeeded"
+echo "Now run vagrant ssh"
 DONE
 end
 
