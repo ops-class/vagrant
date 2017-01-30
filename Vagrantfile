@@ -30,12 +30,14 @@ Vagrant.configure(2) do |config|
     v.customize ["modifyvm", :id, "--cableconnected1", "on"]
   end
 
-  config.vm.provision "shell", "inline":<<DONE
+  $script = <<DONE
 apt-get -qq -o Dpkg::Use-Pty=0 update
 apt-get -qq -o Dpkg::Use-Pty=0 -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
 echo "Installation succeeded"
 echo "Now run vagrant ssh"
 DONE
+
+  config.vm.provision "shell", "inline": $script
 end
 
 # vim: ts=2:sw=2:et:ft=ruby
