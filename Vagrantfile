@@ -22,7 +22,7 @@ Vagrant.configure(2) do |config|
     v.cpus = "1"
     v.memory = "512"
     # 24 Dec 2015 : GWA : Uncomment this if you want a GUI environment.
-    # vb.gui = true
+    # v.gui = true
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     v.customize ["guestproperty", "set", :id, "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold", 10000]
     v.customize ["modifyvm", :id, "--usb", "off"]
